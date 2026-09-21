@@ -2,7 +2,7 @@
  * REVORE TECH - MAIN APPLICATION ENTRY POINT
  */
 
-import { initSmoothScroll } from './smooth-scroll.js';
+import { initSmoothScroll, getLenis } from './smooth-scroll.js';
 import { initNavigation } from './navigation.js';
 import { initHero } from './hero.js';
 import { initProblem } from './problem.js';
@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const openModal = () => {
     modalOverlay?.classList.add('is-active');
     document.body.style.overflow = 'hidden';
+    const lenis = getLenis();
+    if (lenis) lenis.stop();
     if (statusMsg) {
       statusMsg.className = 'form-status-msg';
       statusMsg.textContent = '';
@@ -63,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeModal = () => {
     modalOverlay?.classList.remove('is-active');
     document.body.style.overflow = '';
+    const lenis = getLenis();
+    if (lenis) lenis.start();
   };
 
   modalOpenBtns.forEach(btn => btn.addEventListener('click', (e) => {

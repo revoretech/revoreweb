@@ -405,6 +405,8 @@
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s var(--ease-out-power3), visibility 0.3s;
@@ -418,6 +420,12 @@
 .modal-dialog {
   width: 100%;
   max-width: 620px;
+  max-height: calc(100vh - 3rem);
+  max-height: calc(100dvh - 2.5rem);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-lime) rgba(255, 255, 255, 0.08);
   background: var(--bg-elevated);
   border: 1px solid var(--border-medium);
   border-top: 3px solid var(--accent-lime);
@@ -427,6 +435,27 @@
   transform: translateY(20px);
   transition: transform 0.3s var(--ease-out-power3);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.modal-dialog::-webkit-scrollbar {
+  width: 7px;
+  display: block;
+}
+
+.modal-dialog::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  margin: 6px 0;
+}
+
+.modal-dialog::-webkit-scrollbar-thumb {
+  background: var(--accent-lime);
+  border-radius: 999px;
+  border: 1px solid rgba(11, 13, 14, 0.4);
+}
+
+.modal-dialog::-webkit-scrollbar-thumb:hover {
+  background: #cbf96d;
 }
 
 .modal-overlay.is-active .modal-dialog {
