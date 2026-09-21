@@ -1,0 +1,86 @@
+/* ==========================================================================
+   REVORE TECH - DESIGN SYSTEM VARIABLES
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Dark Graphite Core */
+  --bg-primary: #0B0D0E;
+  --bg-elevated: #141719;
+  --surface-panel: #24282A;
+  --surface-panel-hover: #2C3134;
+  --surface-glass: rgba(18, 21, 23, 0.75);
+
+  /* Color Palette - Light Inversion Sections */
+  --bg-light: #F0F1EE;
+  --bg-light-panel: #E4E6E1;
+  --bg-light-panel-alt: #FFFFFF;
+  --text-dark: #0B0D0E;
+  --text-dark-muted: #82878B;
+  --border-light: rgba(11, 13, 14, 0.08);
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(242, 243, 240, 0.08);
+  --border-medium: rgba(242, 243, 240, 0.16);
+  --border-strong: rgba(242, 243, 240, 0.28);
+
+  /* Typography Colors */
+  --text-primary: #F2F3F0;
+  --text-secondary: #B4B9BD;
+  --text-muted: #7E858A;
+  --text-dim: #4E5459;
+
+  /* Accent - 2% Electric Lime / Material Green */
+  --accent-lime: #B7F34A;
+  --accent-lime-hover: #C5F765;
+  --accent-lime-dim: rgba(183, 243, 74, 0.12);
+  --accent-lime-glow: rgba(183, 243, 74, 0.35);
+  --accent-lime-border: rgba(183, 243, 74, 0.5);
+
+  /* Typography Families */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
+
+  /* Typography Scale */
+  --text-display: clamp(3rem, 9vw, 9.5rem);
+  --text-h1: clamp(2.5rem, 6vw, 5.5rem);
+  --text-h2: clamp(2rem, 4.5vw, 3.8rem);
+  --text-h3: clamp(1.4rem, 2.5vw, 2.2rem);
+  --text-lead: clamp(1.1rem, 1.6vw, 1.45rem);
+  --text-body: 1rem;
+  --text-small: 0.85rem;
+  --text-xs: 0.72rem;
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2.5rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 6.5rem;
+  --spacing-4xl: 10rem;
+
+  /* Layout Container */
+  --container-max: 1560px;
+  --container-padding: clamp(1.25rem, 4vw, 3.5rem);
+  --header-height: 72px;
+
+  /* Transitions & Animation Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-power3: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --dur-fast: 0.2s;
+  --dur-normal: 0.4s;
+  --dur-slow: 0.8s;
+  --dur-cinematic: 1.4s;
+
+  /* Z-Index Hierarchy */
+  --z-base: 1;
+  --z-card: 10;
+  --z-overlay: 20;
+  --z-header: 100;
+  --z-modal: 500;
+  --z-cursor: 999;
+}

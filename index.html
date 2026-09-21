@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B0D0E">
+  <title>Revore Tech - Material Intelligence</title>
+  <meta name="description"
+    content="Revore Tech is building a material digital intelligence scanner for the recycling ecosystem - helping businesses identify, grade, value, track, and manage recyclable materials.">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Revore Tech - Material Intelligence">
+  <meta property="og:description"
+    content="A material intelligence layer for the recycling ecosystem. Turning physical scrap into structured digital data.">
+  <meta property="og:image" content="assets/images/hero-scrap-conveyor.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- External Libraries (Lenis + GSAP + ScrollTrigger) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.0.45/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       SITE HEADER & NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Revore Tech Home">
+        <img src="assets/icons/revorelogo.png" alt="Revore Tech Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu" role="navigation" aria-label="Main Navigation">
+        <a href="#scanner" class="nav-link">Scanner</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#materials" class="nav-link">Materials</a>
+        <a href="#founders" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-lime trigger-scan-modal" id="nav-cta-btn">
+          <span>Request a Scan</span>
+          <span class="arrow-icon" aria-hidden="true">→</span>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-nav-links">
+      <a href="#scanner" class="mobile-nav-link">Scanner</a>
+      <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+      <a href="#materials" class="mobile-nav-link">Materials</a>
+      <a href="#founders" class="mobile-nav-link">About</a>
+      <a href="#trust" class="mobile-nav-link">Data & Confidentiality</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <button class="btn btn-lime trigger-scan-modal" style="width: 100%;">
+        <span>Request a Scan</span>
+        <span class="arrow-icon" aria-hidden="true">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Landmark -->
+  <main id="main-content" role="main">
+
+    <!-- ======================================================================
+         00 - HERO SECTION (MATERIAL TELEMETRY HUD)
+         ====================================================================== -->
+    <section id="hero" class="hero-section" aria-label="Revore Tech Hero Overview">
+      <div class="hero-bg-wrapper">
+        <img src="assets/images/hero-scrap-conveyor.jpg" alt="Industrial scrap metal close-up on conveyor belt"
+          class="hero-bg-image" loading="eager">
+        <div class="hero-gradient-overlay" aria-hidden="true"></div>
+        <div class="bg-grid-overlay" aria-hidden="true"></div>
+      </div>
+
+      <div class="container hero-content">
+        <!-- Top Meta Sub-Bar -->
+        <div class="hero-meta-bar">
+          <div class="hero-meta-left">
+            <span class="tech-label">Material Intelligence Systems</span>
+            <span class="tech-label">
+              <span class="tech-label-dot pulse" aria-hidden="true"></span>
+              India / Building Now
+            </span>
+          </div>
+
+          <div class="hero-meta-right">
+            <div class="hero-scan-bar">
+              <span class="tech-label tech-label--lime">Scanning / Visual Concept</span>
+              <div class="hero-scan-line-track" aria-hidden="true">
+                <div class="hero-scan-line-runner"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Massive Headline -->
+        <div class="hero-center">
+          <!-- Scanning Reticles overlaying the material -->
+          <div class="hero-reticle hero-reticle-1 reticle-target" aria-hidden="true">
+            <div class="reticle-box"></div>
+          </div>
+          <div class="hero-reticle hero-reticle-2 reticle-target" aria-hidden="true">
+            <div class="reticle-box"></div>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hero-title-line">MATERIAL</span>
+            <span class="hero-title-line">INTELLIGENCE.</span>
+          </h1>
+        </div>
+
+        <!-- Bottom Narrative Bar -->
+        <div class="hero-bottom-bar">
+          <div class="hero-tagline">
+            Identify. Grade. Value. Process.
+          </div>
+
+          <div class="hero-scroll-indicator" aria-hidden="true">
+            <span>Scroll to analyze</span>
+            <span class="hero-scroll-arrow">↓</span>
+          </div>
+
+          <!-- Bottom-Right Illustrative HUD Card -->
+          <div class="hud-card" role="region" aria-label="Illustrative Scanner Interface Readout">
+            <div class="hud-header">
+              <span>Illustrative Interface</span>
+              <span class="tech-label-dot" aria-hidden="true"></span>
+            </div>
+            <div class="hud-table">
+              <div class="hud-row">
+                <span class="hud-key">Material</span>
+                <span class="hud-val">Non-Ferrous Metal</span>
+              </div>
+              <div class="hud-row">
+                <span class="hud-key">Grade</span>
+                <span class="hud-val">A / Indicative</span>
+              </div>
+              <div class="hud-row">
+                <span class="hud-key">Mass Input</span>
+                <span class="hud-val">248.6 kg</span>
+              </div>
+              <div class="hud-row">
+                <span class="hud-key">Recovery Est.</span>
+                <span class="hud-val text-lime">~91%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         01 - THE PROBLEM SECTION (LIGHT INVERSION PANEL)
+         ====================================================================== -->
+    <section id="problem" class="problem-section" aria-labelledby="problem-heading">
+      <div class="container">
+        <div class="problem-header-meta">
+          01 / The Problem
+        </div>
+
+        <div class="problem-typography-block">
+          <div class="problem-headline-left" id="problem-heading">
+            Recycling is<br>
+            getting<br>
+            smarter<br>
+            <span class="problem-downstream">downstream.</span>
+          </div>
+
+          <div class="problem-headline-right">
+            <span class="problem-dash"></span>
+            But the upstream<br>
+            still starts<br>
+            manually.
+          </div>
+        </div>
+
+        <!-- Physical Sticky Notes Investigation Board (7 Upstream Bottlenecks) -->
+        <div class="investigation-board-wrapper">
+          <!-- Board Tactical Header -->
+          <div class="board-tactical-header">
+            <div class="board-badge">
+              <span class="board-pulse-dot"></span>
+              <span class="board-badge-title">UPSTREAM BOTTLENECK MAP</span>
+            </div>
+            <div class="board-meta-counter">
+              <span class="board-label">PROBLEM NODES PLACED:</span>
+              <span class="board-active-count" id="board-placed-num">01</span> / 07
+            </div>
+          </div>
+
+          <!-- Pinned Investigation Board Stage -->
+          <div class="investigation-board" id="investigation-board" aria-label="Upstream Problem Map">
+            <div class="board-grid-pattern" aria-hidden="true"></div>
+
+            <!-- Connective SVG Thread Network -->
+            <svg class="board-threads-svg" aria-hidden="true" viewBox="0 0 1200 580" preserveAspectRatio="none">
+              <path class="thread-path thread-p1" d="M 200,140 Q 380,100 560,140" />
+              <path class="thread-path thread-p2" d="M 600,140 Q 780,110 980,140" />
+              <path class="thread-path thread-p3" d="M 980,240 Q 600,340 180,420" />
+              <path class="thread-path thread-p4" d="M 180,420 Q 340,390 480,420" />
+              <path class="thread-path thread-p5" d="M 480,420 Q 640,400 780,420" />
+              <path class="thread-path thread-p6" d="M 780,420 Q 920,400 1020,420" />
+            </svg>
+
+            <!-- Dense Visual Problem Map: 7 Physical Sticky Notes -->
+            <div class="board-notes-canvas">
+
+              <!-- TOP ROW: 3 Primary Upstream Bottlenecks -->
+              <div class="board-row board-row-top">
+
+                <!-- 01 / BOTTLENECK -->
+                <article class="sticky-note note-1" data-note="1" style="--note-rot: -2deg; --note-tone: #FFFFFF;">
+                  <div class="note-tape" aria-hidden="true"></div>
+                  <div class="note-pin-dot" aria-hidden="true"></div>
+                  <div class="note-header">
+                    <span class="note-index">01 / BOTTLENECK</span>
+                    <span class="note-stamp">01 / 07</span>
+                  </div>
+                  <h3 class="note-title">MANUAL MATERIAL IDENTIFICATION</h3>
+                  <p class="note-desc">Visual inspection at the yard gate remains largely subjective, leading to
+                    inconsistent material classification.</p>
+                  <div class="note-footer">
+                    <span class="note-tag">GATE INSPECTION</span>
+                    <span class="note-impact">Subjective Classification</span>
+                  </div>
+                </article>
+
+                <!-- 02 / EXPERTISE -->
+                <article class="sticky-note note-2" data-note="2" style="--note-rot: 1.8deg; --note-tone: #FAFBF8;">
+                  <div class="note-tape" aria-hidden="true"></div>
+                  <div class="note-pin-dot" aria-hidden="true"></div>
+                  <div class="note-header">
+                    <span class="note-index">02 / EXPERTISE</span>
+                    <span class="note-stamp">02 / 07</span>
+                  </div>
+                  <h3 class="note-title">HEAVY DEPENDENCE ON INDIVIDUAL EXPERTISE</h3>
+                  <p class="note-desc">Critical grading knowledge is concentrated in a few veteran sorters rather than
+                    systematic digital records.</p>
+                  <div class="note-footer">
+                    <span class="note-tag">KNOWLEDGE CONCENTRATION</span>
+                    <span class="note-impact">Non-Systematic Records</span>
+                  </div>
+                </article>
+
+                <!-- 03 / VALUATION -->
+                <article class="sticky-note note-3" data-note="3" style="--note-rot: -1.5deg; --note-tone: #FFFFFF;">
+                  <div class="note-tape" aria-hidden="true"></div>
+                  <div class="note-pin-dot" aria-hidden="true"></div>
+                  <div class="note-header">
+                    <span class="note-index">03 / VALUATION</span>
+                    <span class="note-stamp">03 / 07</span>
+                  </div>
+                  <h3 class="note-title">INCONSISTENT VALUATION</h3>
+                  <p class="note-desc">Prices are negotiated on gut feeling rather than verified purity, density, and
+                    recovery yield profiles.</p>
+                  <div class="note-footer">
+                    <span class="note-tag">PRICE NEGOTIATION</span>
+                    <span class="note-impact">Ambiguous Yield Profile</span>
+                  </div>
+                </article>
+
+              </div>
+
+              <!-- BOTTOM ROW: 4 Cascading System Failures -->
+              <div class="board-row board-row-bottom">
+
+                <!-- 04 / OPERATIONS -->
+                <article class="sticky-note note-4" data-note="4" style="--note-rot: 2.2deg; --note-tone: #F7F9F4;">
+                  <div class="note-tape" aria-hidden="true"></div>
+                  <div class="note-pin-dot" aria-hidden="true"></div>
+                  <div class="note-header">
+                    <span class="note-index">04 / OPERATIONS</span>
+                    <span class="note-stamp">04 / 07</span>
+                  </div>
+                  <h3 class="note-title">COMPLEX SORTING</h3>
+                  <p class="note-desc">Mixed scrap piles require multiple labor-intensive sorting cycles before
+                    achieving processing readiness.</p>
+                  <div class="note-footer">
+                    <span class="note-tag">SCRAP HANDLING</span>
+                    <span class="note-impact">Multiple Sorting Cycles</span>
+                  </div>
+                </article>
+
+                <!-- 05 / TRANSPARENCY -->
+                <article class="sticky-note note-5" data-note="5" style="--note-rot: -2.4deg; --note-tone: #FFFFFF;">
+                  <div class="note-tape" aria-hidden="true"></div>
+                  <div class="note-pin-dot" aria-hidden="true"></div>
+                  <div class="note-header">
+                    <span class="note-index">05 / TRANSPARENCY</span>
+                    <span class="note-stamp">05 / 07</span>
+                  </div>
+                  <h3 class="note-title">LIMITED VISIBILITY</h3>
+                  <p class="note-desc">Recyclers lack clear compositional visibility into received inbound loads until
+                    melt-loss is calculated.</p>
+                  <div class="note-footer">
+                    <span class="note-tag">INBOUND RECEPTION</span>
+                    <span class="note-impact">Delayed Melt-Loss Visibility</span>
+                  </div>
+                </article>
+
+                <!-- 06 / ARCHITECTURE -->
+                <article class="sticky-note note-6" data-note="6" style="--note-rot: 1.5deg; --note-tone: #FAFBF8;">
+                  <div class="note-tape" aria-hidden="true"></div>
+                  <div class="note-pin-dot" aria-hidden="true"></div>
+                  <div class="note-header">
+                    <span class="note-index">06 / ARCHITECTURE</span>
+                    <span class="note-stamp">06 / 07</span>
+                  </div>
+                  <h3 class="note-title">FRAGMENTED DATA</h3>
+                  <p class="note-desc">Sensing data exists in silos across scales, clipboards, and informal phone notes
+                    rather than unified manifests.</p>
+                  <div class="note-footer">
+                    <span class="note-tag">DATA STORAGE</span>
+                    <span class="note-impact">Disconnected Manifests</span>
+                  </div>
+                </article>
+
+                <!-- 07 / EFFICIENCY -->
+                <article class="sticky-note note-7" data-note="7" style="--note-rot: -1.6deg; --note-tone: #FFFFFF;">
+                  <div class="note-tape" aria-hidden="true"></div>
+                  <div class="note-pin-dot" aria-hidden="true"></div>
+                  <div class="note-header">
+                    <span class="note-index">07 / EFFICIENCY</span>
+                    <span class="note-stamp">07 / 07</span>
+                  </div>
+                  <h3 class="note-title">TIME LOST IN ASSESSMENT</h3>
+                  <p class="note-desc">Hours spent manually grading and estimating scrap slow vehicle turnaround and
+                    hold up working capital.</p>
+                  <div class="note-footer">
+                    <span class="note-tag">TRUCK LOGISTICS</span>
+                    <span class="note-impact">Working Capital Delays</span>
+                  </div>
+                </article>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         02 - EVERY MATERIAL CARRIES DATA (KINETIC STATEMENT)
+         ====================================================================== -->
+    <section id="data-moment" class="data-moment-section" aria-label="Every Material Carries Data">
+      <div class="data-moment-container">
+        <div class="data-moment-meta">
+          <span class="tech-label tech-label--lime">Physical Input / Digital Potential</span>
+        </div>
+
+        <div class="data-kinetic-wrap">
+          <div class="data-kinetic-track">
+            <div class="data-kinetic-text">
+              Every material <span class="carries-highlight">carries</span> <span class="text-lime">data.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="material-ticker-bar" aria-label="Recyclable material categories">
+          <div class="ticker-item"><span>Lead</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Steel</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Aluminium</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Copper</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Plastic</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Textile</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Wood</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Glass</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Batteries</span> <span class="ticker-bullet" aria-hidden="true">◆</span></div>
+          <div class="ticker-item"><span>Industrial Scrap</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         03 - MATERIAL SCANNER HUD (INTERACTIVE EXPERIENCE)
+         ====================================================================== -->
+    <section id="scanner" class="scanner-section" aria-labelledby="scanner-heading">
+      <div class="container">
+        <div class="scanner-header-block">
+          <div class="tech-label" style="margin-bottom: 1rem;">02 / Intelligence Scanner</div>
+          <h2 class="scanner-headline" id="scanner-heading">
+            Scan material.<br>
+            Understand it.<br>
+            <span class="text-lime">Know its value.</span>
+          </h2>
+          <p class="section-subtitle">
+            Revore Tech is designed to transform physical material into structured, actionable digital information at
+            the moment of intake.
+          </p>
+        </div>
+
+        <!-- Interactive Scanner Workspace -->
+        <div class="scanner-workspace">
+          <!-- Left: Optical Sensor Viewport -->
+          <div class="scanner-viewport-pane">
+            <div class="scanner-camera-feed">
+              <img src="assets/images/copper-nonferrous.jpg" alt="Active material scanning feed" class="camera-feed-img"
+                id="scanner-active-img">
+              <div class="camera-grid" aria-hidden="true"></div>
+              <div class="feed-scan-laser" aria-hidden="true"></div>
+              <div class="scanner-feed-overlay">
+                <span>SPECTRAL SENSING ACTIVE</span>
+                <span id="scan-val-confidence">CONFIDENCE: 99.2%</span>
+              </div>
+            </div>
+
+            <!-- Material Switcher -->
+            <div class="material-selector-bar" role="tablist" aria-label="Select Material Sample">
+              <button class="material-tab-btn active" data-material="copper" role="tab" aria-selected="true">Copper
+                Scrap (Grade 1)</button>
+              <button class="material-tab-btn" data-material="aluminium" role="tab" aria-selected="false">Aluminium
+                (6063)</button>
+              <button class="material-tab-btn" data-material="lead" role="tab" aria-selected="false">Lead Battery
+                Plates</button>
+              <button class="material-tab-btn" data-material="steel" role="tab" aria-selected="false">Steel (HMS
+                1)</button>
+            </div>
+          </div>
+
+          <!-- Right: Structured Telemetry Output -->
+          <div class="scanner-telemetry-pane">
+            <div class="telemetry-header">
+              <div class="telemetry-title">Revore Scanner HUD</div>
+              <div class="telemetry-status-badge">
+                <span class="tech-label-dot" aria-hidden="true"></span>
+                <span>REAL-TIME ANALYSIS ESTIMATE</span>
+              </div>
+            </div>
+
+            <div class="telemetry-cards-list">
+              <div class="telemetry-card">
+                <div class="telemetry-card-left">
+                  <span class="telemetry-label">Material Type</span>
+                  <span class="telemetry-desc">What material is it?</span>
+                </div>
+                <span class="telemetry-value" id="scan-val-type">Non-Ferrous Metal (Copper)</span>
+              </div>
+
+              <div class="telemetry-card">
+                <div class="telemetry-card-left">
+                  <span class="telemetry-label">Grade & Quality</span>
+                  <span class="telemetry-desc">What grade does it fall into?</span>
+                </div>
+                <span class="telemetry-value" id="scan-val-grade">Grade A</span>
+              </div>
+
+              <div class="telemetry-card">
+                <div class="telemetry-card-left">
+                  <span class="telemetry-label">Weight</span>
+                  <span class="telemetry-desc">How much material is present?</span>
+                </div>
+                <span class="telemetry-value" id="scan-val-weight">342.8 kg</span>
+              </div>
+
+              <div class="telemetry-card">
+                <div class="telemetry-card-left">
+                  <span class="telemetry-label">Recovery</span>
+                  <span class="telemetry-desc">What can potentially be recovered?</span>
+                </div>
+                <span class="telemetry-value text-lime" id="scan-val-recovery">98.4%</span>
+              </div>
+
+              <div class="telemetry-card">
+                <div class="telemetry-card-left">
+                  <span class="telemetry-label">Estimated Value</span>
+                  <span class="telemetry-desc">What is it estimated to be worth?</span>
+                </div>
+                <span class="telemetry-value text-lime" id="scan-val-est">₹2,46,800</span>
+              </div>
+            </div>
+
+            <div class="telemetry-footer">
+              <span class="telemetry-note">
+                *Illustrative UI concept. Product currently in field testing with industrial partners.
+              </span>
+              <button class="btn btn-lime trigger-scan-modal" id="scanner-save-asset-btn">
+                <span>Save Asset</span>
+                <span class="arrow-icon" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         04 - HOW IT WORKS (PROCESS PIPELINE)
+         ====================================================================== -->
+    <section id="how-it-works" class="pipeline-section" aria-labelledby="pipeline-heading">
+      <div class="container">
+        <div class="pipeline-header">
+          <div class="tech-label" style="margin-bottom: 1rem;">03 / Process Pipeline</div>
+          <h2 class="section-title" id="pipeline-heading">From Physical to Structured Data</h2>
+          <p class="section-subtitle">
+            A scroll-driven progression that moves material from raw physical chaos into clean operational value.
+          </p>
+        </div>
+
+        <!-- Two Halves Split Layout -->
+        <div class="pipeline-split-layout">
+          <!-- LEFT HALF: Sticky 3D Telemetry & Visualizer Stage -->
+          <div class="pipeline-sticky-col">
+            <div class="pipeline-sticky-card">
+              <!-- Header Telemetry Bar -->
+              <div class="pipeline-viz-header">
+                <div class="viz-status-pill">
+                  <span class="viz-pulse-dot"></span>
+                  <span id="pipeline-viz-status">STAGE 01 / ACTIVE</span>
+                </div>
+                <div class="viz-stage-counter">
+                  <span id="pipeline-stage-idx">01</span> / 06
+                </div>
+              </div>
+
+              <!-- 3D Hologram / Stage Transformation Visualizer -->
+              <div class="pipeline-3d-stage">
+                <div class="pipeline-prism-wrap">
+                  <div class="prism-glow-ring ring-outer"></div>
+                  <div class="prism-glow-ring ring-mid"></div>
+                  <div class="prism-glow-ring ring-inner"></div>
+                  <div class="prism-scanner-laser"></div>
+
+                  <!-- Stage Icon / Glyphs that dynamically transition per stage -->
+                  <div class="pipeline-hologram-center">
+                    <div class="holo-symbol active" data-stage="1">
+                      <svg viewBox="0 0 48 48" class="holo-icon">
+                        <circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="1.5"
+                          stroke-dasharray="4 4" />
+                        <line x1="8" y1="24" x2="40" y2="24" stroke="var(--accent-lime)" stroke-width="2" />
+                        <line x1="24" y1="8" x2="24" y2="40" stroke="currentColor" stroke-width="1.5" />
+                        <rect x="18" y="18" width="12" height="12" fill="none" stroke="var(--accent-lime)"
+                          stroke-width="2" />
+                      </svg>
+                      <div class="holo-label">SCANNER</div>
+                    </div>
+                    <div class="holo-symbol" data-stage="2">
+                      <svg viewBox="0 0 48 48" class="holo-icon">
+                        <path d="M6 24 C12 12, 18 36, 24 24 C30 12, 36 36, 42 24" fill="none"
+                          stroke="var(--accent-lime)" stroke-width="2" />
+                        <circle cx="24" cy="24" r="6" fill="currentColor" opacity="0.3" />
+                        <circle cx="24" cy="24" r="2" fill="var(--accent-lime)" />
+                      </svg>
+                      <div class="holo-label">ANALYZE</div>
+                    </div>
+                    <div class="holo-symbol" data-stage="3">
+                      <svg viewBox="0 0 48 48" class="holo-icon">
+                        <polygon points="24,6 40,16 40,32 24,42 8,32 8,16" fill="none" stroke="currentColor"
+                          stroke-width="1.5" />
+                        <polygon points="24,14 32,20 32,28 24,34 16,28 16,20" fill="none" stroke="var(--accent-lime)"
+                          stroke-width="2" />
+                        <circle cx="24" cy="24" r="3" fill="var(--accent-lime)" />
+                      </svg>
+                      <div class="holo-label">GRADE</div>
+                    </div>
+                    <div class="holo-symbol" data-stage="4">
+                      <svg viewBox="0 0 48 48" class="holo-icon">
+                        <rect x="10" y="26" width="6" height="14" fill="none" stroke="currentColor"
+                          stroke-width="1.5" />
+                        <rect x="21" y="16" width="6" height="24" fill="none" stroke="currentColor"
+                          stroke-width="1.5" />
+                        <rect x="32" y="8" width="6" height="32" fill="none" stroke="var(--accent-lime)"
+                          stroke-width="2" />
+                        <polyline points="8,30 20,20 31,12 40,8" fill="none" stroke="var(--accent-lime)"
+                          stroke-width="1.5" stroke-dasharray="2 2" />
+                      </svg>
+                      <div class="holo-label">VALUE</div>
+                    </div>
+                    <div class="holo-symbol" data-stage="5">
+                      <svg viewBox="0 0 48 48" class="holo-icon">
+                        <rect x="10" y="8" width="28" height="32" rx="2" fill="none" stroke="currentColor"
+                          stroke-width="1.5" />
+                        <line x1="16" y1="16" x2="32" y2="16" stroke="var(--accent-lime)" stroke-width="2" />
+                        <line x1="16" y1="22" x2="32" y2="22" stroke="currentColor" stroke-width="1.5" />
+                        <line x1="16" y1="28" x2="26" y2="28" stroke="currentColor" stroke-width="1.5" />
+                        <circle cx="30" cy="32" r="4" fill="none" stroke="var(--accent-lime)" stroke-width="1.5" />
+                      </svg>
+                      <div class="holo-label">DIGITAL</div>
+                    </div>
+                    <div class="holo-symbol" data-stage="6">
+                      <svg viewBox="0 0 48 48" class="holo-icon">
+                        <circle cx="12" cy="24" r="4" fill="currentColor" />
+                        <circle cx="36" cy="14" r="4" fill="var(--accent-lime)" />
+                        <circle cx="36" cy="34" r="4" fill="currentColor" />
+                        <line x1="16" y1="22" x2="32" y2="16" stroke="var(--accent-lime)" stroke-width="2" />
+                        <line x1="16" y1="26" x2="32" y2="32" stroke="currentColor" stroke-width="1.5"
+                          stroke-dasharray="3 3" />
+                      </svg>
+                      <div class="holo-label">SUPPLY CHAIN</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step Progress Track -->
+              <div class="pipeline-progress-track">
+                <div class="track-node active" data-step="1"><span>01</span></div>
+                <div class="track-line">
+                  <div class="track-fill fill-1"></div>
+                </div>
+                <div class="track-node" data-step="2"><span>02</span></div>
+                <div class="track-line">
+                  <div class="track-fill fill-2"></div>
+                </div>
+                <div class="track-node" data-step="3"><span>03</span></div>
+                <div class="track-line">
+                  <div class="track-fill fill-3"></div>
+                </div>
+                <div class="track-node" data-step="4"><span>04</span></div>
+                <div class="track-line">
+                  <div class="track-fill fill-4"></div>
+                </div>
+                <div class="track-node" data-step="5"><span>05</span></div>
+                <div class="track-line">
+                  <div class="track-fill fill-5"></div>
+                </div>
+                <div class="track-node" data-step="6"><span>06</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT HALF: Scroll-Driven 3D Cards / Stage Steps -->
+          <div class="pipeline-scroll-col">
+            <!-- 01 - SCAN -->
+            <div class="pipeline-step-card is-active" data-step="1">
+              <div class="card-accent-bar"></div>
+              <div class="card-top-row">
+                <span class="step-num">01 - SCAN</span>
+                <span class="step-tag">INTAKE SENSING</span>
+              </div>
+              <h3 class="step-title">SCAN </h3>
+              <p class="step-desc">Scan the physical material using the Revore Tech system across designated intake
+                points.</p>
+              <div class="card-bot-row">
+                <span class="card-status"></span>
+                <span class="card-latency"></span>
+              </div>
+            </div>
+
+            <!-- 02 - IDENTIFY -->
+            <div class="pipeline-step-card" data-step="2">
+              <div class="card-accent-bar"></div>
+              <div class="card-top-row">
+                <span class="step-num">02 - IDENTIFY</span>
+                <span class="step-tag">SPECTRAL INFERENCE</span>
+              </div>
+              <h3 class="step-title">ANALYZE </h3>
+              <p class="step-desc">Our intelligence systems analyze the captured optical and material signals to
+                determine category.</p>
+              <div class="card-bot-row">
+                <span class="card-status"></span>
+                <span class="card-latency"></span>
+              </div>
+            </div>
+
+            <!-- 03 - GRADE -->
+            <div class="pipeline-step-card" data-step="3">
+              <div class="card-accent-bar"></div>
+              <div class="card-top-row">
+                <span class="step-num">03 - GRADE</span>
+                <span class="step-tag">PURITY MATRIX</span>
+              </div>
+              <h3 class="step-title">EVALUATE </h3>
+              <p class="step-desc">The system evaluates relevant surface characteristics and assigns the applicable
+                industrial grade.</p>
+              <div class="card-bot-row">
+                <span class="card-status"></span>
+                <span class="card-latency"></span>
+              </div>
+            </div>
+
+            <!-- 04 - VALUE -->
+            <div class="pipeline-step-card" data-step="4">
+              <div class="card-accent-bar"></div>
+              <div class="card-top-row">
+                <span class="step-num">04 - VALUE</span>
+                <span class="step-tag">DYNAMIC RECOVERY</span>
+              </div>
+              <h3 class="step-title">ESTIMATE </h3>
+              <p class="step-desc">Using material class, estimated weight, grade, and recovery potential, the system
+                models valuation.</p>
+              <div class="card-bot-row">
+                <span class="card-status"></span>
+                <span class="card-latency"></span>
+              </div>
+            </div>
+
+            <!-- 05 - STORE -->
+            <div class="pipeline-step-card" data-step="5">
+              <div class="card-accent-bar"></div>
+              <div class="card-top-row">
+                <span class="step-num">05 - STORE</span>
+                <span class="step-tag">DIGITAL LEDGER</span>
+              </div>
+              <h3 class="step-title">DIGITAL RECORD</h3>
+              <p class="step-desc">The assessment becomes structured digital data that can be retained, queried, and
+                verified.</p>
+              <div class="card-bot-row">
+                <span class="card-status"></span>
+                <span class="card-latency"></span>
+              </div>
+            </div>
+
+            <!-- 06 - MOVE -->
+            <div class="pipeline-step-card" data-step="6">
+              <div class="card-accent-bar"></div>
+              <div class="card-top-row">
+                <span class="step-num">06 - MOVE</span>
+                <span class="step-tag">FOUNDRY DISPATCH</span>
+              </div>
+              <h3 class="step-title">SUPPLY CHAIN FLOW</h3>
+              <p class="step-desc">Use verified intelligence to support selling, foundry processing, documentation, and
+                tracking.</p>
+              <div class="card-bot-row">
+                <span class="card-status"></span>
+                <span class="card-latency"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concluding Rhythm Sequence -->
+        <div class="pipeline-rhythm" aria-label="Pipeline sequence keywords">
+          <span class="rhythm-word">SCAN.</span>
+          <span class="rhythm-word">IDENTIFY.</span>
+          <span class="rhythm-word">GRADE.</span>
+          <span class="rhythm-word">VALUE.</span>
+          <span class="rhythm-word highlight">PROCESS.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         04 - VALUE (MORE THAN A PRICE)
+         ====================================================================== -->
+    <section id="value-equation" class="value-section" aria-labelledby="value-heading">
+      <div class="container value-container">
+        <!-- Section Tracker -->
+        <div class="value-meta-row">
+          <span class="value-badge">04 / VALUE</span>
+        </div>
+
+        <!-- Section Title & Subtitle -->
+        <div class="value-header-block">
+          <h2 class="value-heading" id="value-heading">
+            <span class="val-reveal-item">MORE THAN</span>
+            <span class="val-reveal-item">A PRICE.</span>
+          </h2>
+          <p class="value-subheading val-reveal-item">
+            We don't just ask,<br>
+            <span class="value-quote">“What is this worth?”</span>
+          </p>
+        </div>
+
+        <!-- Minimalist Typographic Value Equation -->
+        <div class="value-equation-sequence" role="group" aria-label="Value Equation">
+          <div class="equation-terms-row">
+            <span class="eq-term val-term-item">Material</span>
+            <span class="eq-op val-term-item" aria-hidden="true">+</span>
+            <span class="eq-term val-term-item">Weight</span>
+            <span class="eq-op val-term-item" aria-hidden="true">+</span>
+            <span class="eq-term val-term-item">Grade</span>
+            <span class="eq-op val-term-item" aria-hidden="true">+</span>
+            <span class="eq-term val-term-item">Recovery</span>
+          </div>
+
+          <div class="equation-arrow-row val-reveal-item" aria-hidden="true">
+            <span class="equation-down-arrow">↓</span>
+          </div>
+
+          <div class="equation-result-row val-reveal-item">
+            <div class="equation-outcome-term">Estimated value</div>
+          </div>
+        </div>
+
+        <!-- Concluding Statement -->
+        <div class="value-closing-block val-reveal-item">
+          <p class="value-closing-text">A material's value can depend on much more than its name.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         05 - MATERIALS SECTION (LIGHT INVERSION PANEL)
+         ====================================================================== -->
+    <section id="materials" class="materials-section" aria-labelledby="materials-heading">
+      <div class="container-wide">
+        <div class="materials-header-row">
+          <div>
+            <div class="tech-label" style="color: var(--text-dark-muted); margin-bottom: 1rem;">05 / Materials</div>
+            <h2 class="materials-headline" id="materials-heading">MATERIALS</h2>
+          </div>
+          <div class="materials-subheading">
+            Starting with metals.<br>
+            <strong>Building toward everything.</strong>
+          </div>
+        </div>
+
+        <!-- 4-Column Material Grid matching sample-materials-ui.png -->
+        <div class="materials-grid">
+          <!-- Card 1: Ferrous Metals -->
+          <div class="material-card">
+            <div class="material-card-media">
+              <img src="assets/images/ferrous-steel.jpg" alt="Heavy melting steel scrap" class="material-card-img"
+                loading="lazy">
+            </div>
+            <div class="material-card-body">
+              <div class="material-focus-tag">Current Focus</div>
+              <h3 class="material-card-title">Ferrous Metals</h3>
+              <div class="material-watermark" aria-hidden="true">FE</div>
+            </div>
+          </div>
+
+          <!-- Card 2: Non-Ferrous Metals (Lime Active Highlight) -->
+          <div class="material-card card-lime">
+            <div class="material-card-media">
+              <img src="assets/images/copper-nonferrous.jpg" alt="Recycled copper scrap coils" class="material-card-img"
+                loading="lazy">
+            </div>
+            <div class="material-card-body">
+              <div class="material-focus-tag">Current Focus</div>
+              <h3 class="material-card-title">Non-Ferrous Metals</h3>
+              <div class="material-watermark" aria-hidden="true">NF</div>
+            </div>
+          </div>
+
+          <!-- Card 3: Lead -->
+          <div class="material-card">
+            <div class="material-card-media">
+              <img src="assets/images/lead-plates.jpg" alt="Industrial lead plates and ingots" class="material-card-img"
+                loading="lazy">
+            </div>
+            <div class="material-card-body">
+              <div class="material-focus-tag">Current Focus</div>
+              <h3 class="material-card-title">Lead</h3>
+              <div class="material-watermark" aria-hidden="true">PB</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Expanding Portfolio -->
+          <div class="material-card">
+            <div class="material-card-media">
+              <img src="assets/images/expanding-materials.jpg" alt="Engineered plastics and technical textiles"
+                class="material-card-img" loading="lazy">
+            </div>
+            <div class="material-card-body">
+              <div class="material-focus-tag">Building Toward</div>
+              <div class="material-card-list">
+                Plastics · Textiles · Wood · Paper · Glass · Batteries · Industrial Scrap
+              </div>
+              <div class="material-watermark" aria-hidden="true">+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         08 - POSITIONING STATEMENT
+         ====================================================================== -->
+    <section id="positioning" class="positioning-section" aria-label="Brand Positioning Statement">
+      <div class="container">
+        <div class="positioning-meta">
+          <span class="tech-label positioning-reveal-meta">Object Recognition ≠ Material Understanding</span>
+        </div>
+
+        <div class="positioning-text-block">
+          <h2 class="positioning-main-title">
+            <span class="positioning-reveal-line pos-line-1">Our ambition is not to build</span>
+            <span class="positioning-reveal-line pos-line-2">an <span class="strikethrough-muted"><span
+                  class="strike-text">object scanner.</span><span class="strikethrough-line"
+                  aria-hidden="true"></span></span></span>
+          </h2>
+
+          <div class="positioning-accent-block">
+            <div class="positioning-reveal-line positioning-build-label">We are building</div>
+            <div class="positioning-reveal-line positioning-lime-label">Material Intelligence.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         06 - INDUSTRY INTEGRATION (CENTRAL CIRCLE RADIAL PROGRESSION)
+         ====================================================================== -->
+    <section id="ecosystem" class="ecosystem-section" aria-labelledby="ecosystem-heading">
+
+      <!-- Pinned Viewport Container for Scroll-Controlled Experience -->
+      <div class="eco-viewport-stage" id="eco-viewport-stage">
+
+        <!-- Background Architectural Grid & Subtle Radial Rings -->
+        <div class="eco-stage-ambient" aria-hidden="true">
+          <div class="eco-grid-layer"></div>
+          <div class="eco-ambient-ring ring-1"></div>
+          <div class="eco-ambient-ring ring-2"></div>
+          <div class="eco-ambient-ring ring-3"></div>
+        </div>
+
+        <!-- Section Editorial Header Bar (Pinned at top of the stage) -->
+        <div class="eco-header-bar">
+          <div class="eco-header-left">
+            <div class="tech-label" style="margin-bottom: 0.6rem;">06 / Industry Integration</div>
+            <h2 class="eco-main-heading" id="ecosystem-heading">
+              BUILT FOR THE <span class="eco-heading-accent">RECYCLING ECOSYSTEM.</span>
+            </h2>
+          </div>
+          <div class="eco-header-right">
+            <p class="eco-subheading">
+              Intelligence for anyone who handles, grades, processes, or trades recyclable material.
+            </p>
+            <div class="eco-stage-counter-wrap">
+              <span class="eco-counter-pulse"></span>
+              <span class="eco-counter-label">ECOSYSTEM DISCOVERY:</span>
+              <span class="eco-counter-val" id="eco-active-idx">01</span>
+              <span class="eco-counter-total">/ 06</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Central Radial Experience Arena -->
+        <div class="eco-radial-arena" id="eco-radial-arena">
+
+          <!-- 1. The Large Central Circle (Visual Anchor of the entire section) -->
+          <div class="eco-central-circle" id="eco-central-circle" aria-label="Revore Intelligence Core">
+            <div class="central-circle-ambient-glow" aria-hidden="true"></div>
+            <div class="central-circle-sphere">
+
+              <!-- Subtle Concentric Calibration Tick Ring -->
+              <div class="circle-dial-ring" aria-hidden="true"></div>
+
+              <!-- Center Core Branding & Status Content -->
+              <div class="circle-core-content">
+                <span class="core-brand-logo">REVORE</span>
+                <span class="core-tagline">MATERIAL INTELLIGENCE</span>
+
+                <div class="core-active-pill">
+                  <span class="core-active-dot"></span>
+                  <span class="core-active-text" id="core-status-text">01 · YARDS INTAKE</span>
+                </div>
+              </div>
+
+              <!-- Rotating Outer Micro-Dash Ring -->
+              <div class="circle-micro-orbit" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <!-- 2. Dynamic SVG Radial Progression Vector Canvas -->
+          <svg class="eco-progression-svg" id="eco-progression-svg" viewBox="0 0 1200 800"
+            preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <linearGradient id="progressionGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0B0D0E" />
+                <stop offset="85%" stop-color="#0B0D0E" />
+                <stop offset="100%" stop-color="#B7F34A" />
+              </linearGradient>
+              <filter id="markerGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Guide Background Ghost Path (Center to 01 -> 02 -> 03 -> 04 -> 05 -> 06) -->
+            <path id="eco-guide-path" class="eco-guide-path"
+              d="M 600,400 C 720,380 820,270 920,210 C 960,265 980,335 980,400 C 980,470 955,535 920,590 C 800,690 400,690 280,590 C 245,535 220,470 220,400 C 220,335 240,265 280,210" />
+
+            <!-- Active Scroll-Scrubbed Progression Path (draws smoothly on scroll) -->
+            <path id="eco-active-path" class="eco-active-path"
+              d="M 600,400 C 720,380 820,270 920,210 C 960,265 980,335 980,400 C 980,470 955,535 920,590 C 800,690 400,690 280,590 C 245,535 220,470 220,400 C 220,335 240,265 280,210" />
+
+            <!-- Origin Center Anchor Dot -->
+            <circle cx="600" cy="400" r="5" class="eco-center-anchor-dot" />
+
+            <!-- 6 Marker Nodes Along the Progression Line -->
+            <!-- Marker 01: YARDS (Top Right) -->
+            <g class="eco-svg-marker active" id="marker-node-1" data-step="1" transform="translate(920, 210)">
+              <circle cx="0" cy="0" r="20" class="marker-pulse-halo" />
+              <circle cx="0" cy="0" r="11" class="marker-outer-circle" />
+              <circle cx="0" cy="0" r="4.5" class="marker-inner-dot" />
+              <text x="0" y="3.5" class="marker-num-text" text-anchor="middle">01</text>
+              <text x="24" y="4" class="marker-sector-label" text-anchor="start">YARDS</text>
+            </g>
+
+            <!-- Marker 02: FOUNDRIES (Mid Right) -->
+            <g class="eco-svg-marker" id="marker-node-2" data-step="2" transform="translate(980, 400)">
+              <circle cx="0" cy="0" r="20" class="marker-pulse-halo" />
+              <circle cx="0" cy="0" r="11" class="marker-outer-circle" />
+              <circle cx="0" cy="0" r="4.5" class="marker-inner-dot" />
+              <text x="0" y="3.5" class="marker-num-text" text-anchor="middle">02</text>
+              <text x="24" y="4" class="marker-sector-label" text-anchor="start">FOUNDRIES</text>
+            </g>
+
+            <!-- Marker 03: INDUSTRY (Bottom Right) -->
+            <g class="eco-svg-marker" id="marker-node-3" data-step="3" transform="translate(920, 590)">
+              <circle cx="0" cy="0" r="20" class="marker-pulse-halo" />
+              <circle cx="0" cy="0" r="11" class="marker-outer-circle" />
+              <circle cx="0" cy="0" r="4.5" class="marker-inner-dot" />
+              <text x="0" y="3.5" class="marker-num-text" text-anchor="middle">03</text>
+              <text x="24" y="4" class="marker-sector-label" text-anchor="start">INDUSTRY</text>
+            </g>
+
+            <!-- Marker 04: NODES (Bottom Left) -->
+            <g class="eco-svg-marker" id="marker-node-4" data-step="4" transform="translate(280, 590)">
+              <circle cx="0" cy="0" r="20" class="marker-pulse-halo" />
+              <circle cx="0" cy="0" r="11" class="marker-outer-circle" />
+              <circle cx="0" cy="0" r="4.5" class="marker-inner-dot" />
+              <text x="0" y="3.5" class="marker-num-text" text-anchor="middle">04</text>
+              <text x="-24" y="4" class="marker-sector-label" text-anchor="end">NODES</text>
+            </g>
+
+            <!-- Marker 05: RECOVERY (Mid Left) -->
+            <g class="eco-svg-marker" id="marker-node-5" data-step="5" transform="translate(220, 400)">
+              <circle cx="0" cy="0" r="20" class="marker-pulse-halo" />
+              <circle cx="0" cy="0" r="11" class="marker-outer-circle" />
+              <circle cx="0" cy="0" r="4.5" class="marker-inner-dot" />
+              <text x="0" y="3.5" class="marker-num-text" text-anchor="middle">05</text>
+              <text x="-24" y="4" class="marker-sector-label" text-anchor="end">RECOVERY</text>
+            </g>
+
+            <!-- Marker 06: COMMODITY (Top Left) -->
+            <g class="eco-svg-marker" id="marker-node-6" data-step="6" transform="translate(280, 210)">
+              <circle cx="0" cy="0" r="20" class="marker-pulse-halo" />
+              <circle cx="0" cy="0" r="11" class="marker-outer-circle" />
+              <circle cx="0" cy="0" r="4.5" class="marker-inner-dot" />
+              <text x="0" y="3.5" class="marker-num-text" text-anchor="middle">06</text>
+              <text x="-24" y="4" class="marker-sector-label" text-anchor="end">COMMODITY</text>
+            </g>
+          </svg>
+
+          <!-- 3. The Six Information Reveal Entities (emerge sequentially from center outward) -->
+          <div class="eco-entities-wrap" id="eco-entities-wrap">
+
+            <!-- Entity 01: YARDS / SCRAP DEALERS -->
+            <article class="eco-info-entity is-active" id="eco-entity-1" data-step="1">
+              <div class="entity-content-body">
+                <div class="entity-badge-row">
+                  <span class="entity-step-pill">01 / YARDS</span>
+                  <span class="entity-status-tag" id="status-tag-1">ACTIVE INDUSTRY</span>
+                </div>
+                <h3 class="entity-hero-title">SCRAP DEALERS</h3>
+                <p class="entity-body-text">
+                  Speed up gate intake, standardize weight estimates, and grade incoming material objectively before
+                  buying.
+                </p>
+                <div class="entity-spec-strip">
+                  <span class="spec-pill">GATE INTAKE</span>
+                  <span class="spec-pill">OBJECTIVE GRADING</span>
+                  <span class="spec-pill text-accent">INSTANT VALUATION</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Entity 02: FOUNDRIES / RECYCLING & PROCESSING -->
+            <article class="eco-info-entity" id="eco-entity-2" data-step="2">
+              <div class="entity-content-body">
+                <div class="entity-badge-row">
+                  <span class="entity-step-pill">02 / FOUNDRIES</span>
+                  <span class="entity-status-tag" id="status-tag-2">UPCOMING</span>
+                </div>
+                <h3 class="entity-hero-title">RECYCLING & PROCESSING</h3>
+                <p class="entity-body-text">
+                  Verify melt-loss potential and purity grades before charging scrap into secondary smelting furnaces.
+                </p>
+                <div class="entity-spec-strip">
+                  <span class="spec-pill">MELT-LOSS AUDIT</span>
+                  <span class="spec-pill">FURNACE ASSURANCE</span>
+                  <span class="spec-pill text-accent">PURITY GRADES</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Entity 03: INDUSTRY / MANUFACTURERS -->
+            <article class="eco-info-entity" id="eco-entity-3" data-step="3">
+              <div class="entity-content-body">
+                <div class="entity-badge-row">
+                  <span class="entity-step-pill">03 / INDUSTRY</span>
+                  <span class="entity-status-tag" id="status-tag-3">UPCOMING</span>
+                </div>
+                <h3 class="entity-hero-title">MANUFACTURERS</h3>
+                <p class="entity-body-text">
+                  Audit manufacturing offcuts, stampings, and production scrap to maximize recovered scrap asset
+                  revenue.
+                </p>
+                <div class="entity-spec-strip">
+                  <span class="spec-pill">PRODUCTION OFFCUTS</span>
+                  <span class="spec-pill">STAMPING AUDIT</span>
+                  <span class="spec-pill text-accent">REVENUE RECOVERY</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Entity 04: NODES / COLLECTION CENTERS -->
+            <article class="eco-info-entity" id="eco-entity-4" data-step="4">
+              <div class="entity-content-body">
+                <div class="entity-badge-row">
+                  <span class="entity-step-pill">04 / NODES</span>
+                  <span class="entity-status-tag" id="status-tag-4">UPCOMING</span>
+                </div>
+                <h3 class="entity-hero-title">COLLECTION CENTERS</h3>
+                <p class="entity-body-text">
+                  Establish auditable digital intake manifests to build verified supply chain traceability from source.
+                </p>
+                <div class="entity-spec-strip">
+                  <span class="spec-pill">INTAKE MANIFESTS</span>
+                  <span class="spec-pill">SOURCE TRACEABILITY</span>
+                  <span class="spec-pill text-accent">DIGITAL AUDIT</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Entity 05: RECOVERY / WASTE MANAGEMENT -->
+            <article class="eco-info-entity" id="eco-entity-5" data-step="5">
+              <div class="entity-content-body">
+                <div class="entity-badge-row">
+                  <span class="entity-step-pill">05 / RECOVERY</span>
+                  <span class="entity-status-tag" id="status-tag-5">UPCOMING</span>
+                </div>
+                <h3 class="entity-hero-title">WASTE MANAGEMENT</h3>
+                <p class="entity-body-text">
+                  Automate bulk sorting intelligence to segregate high-value secondary metals from mixed municipal
+                  streams.
+                </p>
+                <div class="entity-spec-strip">
+                  <span class="spec-pill">BULK SORTING</span>
+                  <span class="spec-pill">STREAM SEGREGATION</span>
+                  <span class="spec-pill text-accent">HIGH-VALUE FRACTIONS</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Entity 06: COMMODITY / TRADERS & AGGREGATORS -->
+            <article class="eco-info-entity" id="eco-entity-6" data-step="6">
+              <div class="entity-content-body">
+                <div class="entity-badge-row">
+                  <span class="entity-step-pill">06 / COMMODITY</span>
+                  <span class="entity-status-tag" id="status-tag-6">UPCOMING</span>
+                </div>
+                <h3 class="entity-hero-title">TRADERS & AGGREGATORS</h3>
+                <p class="entity-body-text">
+                  Trade with confidence backed by verifiable digital purity profiles and structured grade certificates.
+                </p>
+                <div class="entity-spec-strip">
+                  <span class="spec-pill">PURITY PROFILES</span>
+                  <span class="spec-pill">GRADE CERTIFICATES</span>
+                  <span class="spec-pill text-accent">TRUSTED TRADING</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+
+        <!-- Bottom Sequential Step Control Pills -->
+        <div class="eco-timeline-nav" role="tablist" aria-label="Ecosystem Step Selector">
+          <button class="eco-nav-btn active" data-step="1" role="tab" aria-selected="true">
+            <span class="btn-step-dot"></span>
+            <span class="btn-step-title">01 YARDS</span>
+          </button>
+          <button class="eco-nav-btn" data-step="2" role="tab" aria-selected="false">
+            <span class="btn-step-dot"></span>
+            <span class="btn-step-title">02 FOUNDRIES</span>
+          </button>
+          <button class="eco-nav-btn" data-step="3" role="tab" aria-selected="false">
+            <span class="btn-step-dot"></span>
+            <span class="btn-step-title">03 INDUSTRY</span>
+          </button>
+          <button class="eco-nav-btn" data-step="4" role="tab" aria-selected="false">
+            <span class="btn-step-dot"></span>
+            <span class="btn-step-title">04 NODES</span>
+          </button>
+          <button class="eco-nav-btn" data-step="5" role="tab" aria-selected="false">
+            <span class="btn-step-dot"></span>
+            <span class="btn-step-title">05 RECOVERY</span>
+          </button>
+          <button class="eco-nav-btn" data-step="6" role="tab" aria-selected="false">
+            <span class="btn-step-dot"></span>
+            <span class="btn-step-title">06 COMMODITY</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         07 - FROM SCAN TO SUPPLY CHAIN
+         ====================================================================== -->
+    <section id="supply-chain" class="supply-section" aria-labelledby="supply-heading">
+      <div class="container">
+        <div class="tech-label" style="margin-bottom: 1rem;">07 / Value Network</div>
+        <h2 class="section-title" id="supply-heading">From Scan to Supply Chain</h2>
+        <p class="section-subtitle">
+          Material intelligence shouldn't stop at identification. It powers transactions, documentation, and movement.
+        </p>
+
+        <div class="supply-pipeline" role="group" aria-label="Supply Chain Flow">
+          <div class="supply-node">Material Intake</div>
+          <div class="supply-arrow">→</div>
+          <div class="supply-node highlight">Revore Intelligence</div>
+          <div class="supply-arrow">→</div>
+          <div class="supply-node">Calibrated Valuation</div>
+          <div class="supply-arrow">→</div>
+          <div class="supply-node">Buyer / Processor</div>
+          <div class="supply-arrow">→</div>
+          <div class="supply-node">Settlement</div>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; max-width: 60ch; margin: 0 auto;">
+          Building direction: Future ecosystem workflows will bridge digital manifests with automated verification and
+          trade settlement.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         08 - PRIVACY ARCHITECTURE
+         ====================================================================== -->
+    <section id="trust" class="privacy-section" aria-labelledby="privacy-heading">
+      <div class="container">
+        <div class="privacy-header">
+          <div class="tech-label" style="margin-bottom: 0.85rem;">08 / Privacy Architecture</div>
+          <h2 class="section-title privacy-main-title" id="privacy-heading">
+            Your Data. <span class="text-accent-underline">Your Material Intelligence.</span>
+          </h2>
+        </div>
+
+        <div class="privacy-cards-grid">
+          <!-- Card 1 -->
+          <div class="privacy-feature-card">
+            <div class="card-accent-notch"></div>
+            <p class="privacy-card-text">
+              Built with <span class="highlight-text">enterprise confidentiality</span> in mind. Your <span
+                class="highlight-bold">material throughput data</span>, <span class="highlight-bold">pricing
+                formulas</span>, and <span class="highlight-bold">supplier metrics</span> <span
+                class="highlight-text">belong strictly to the business generating them</span>.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="privacy-feature-card">
+            <div class="card-accent-notch"></div>
+            <p class="privacy-card-text">
+              Revore Tech is designed to keep customer operational data <span class="highlight-text">confidential and
+                secure</span>. Customer material data is <span class="highlight-bold">not used to train models without
+                explicit authorization</span>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         09 - VALIDATION PHASE
+         ====================================================================== -->
+    <section id="validation" class="validation-section" aria-labelledby="validation-heading">
+      <div class="container">
+        <div class="validation-header">
+          <div class="validation-badge-wrap">
+            <span class="validation-status-pulse"></span>
+            <span class="tech-label">09 / Validation Phase</span>
+          </div>
+          <h2 class="section-title validation-main-title" id="validation-heading">
+            Where We Are Today: <span class="text-accent-underline">Building with the Industry</span>
+          </h2>
+        </div>
+
+        <!-- Description Card -->
+        <div class="validation-overview-card">
+          <div class="card-accent-notch"></div>
+          <p class="validation-card-text">
+            Revore Tech is currently in the <span class="highlight-text">testing phase</span>, working alongside <span
+              class="highlight-bold">recycling yards</span>, <span class="highlight-bold">foundries</span>, and <span
+              class="highlight-bold">scrap processors</span> to develop and validate the technology in <span
+              class="highlight-bold">real-world operating environments</span>.
+          </p>
+        </div>
+
+        <!-- Industry Creed Card -->
+        <div class="validation-creed-box">
+          <div class="creed-ambient-glow" aria-hidden="true"></div>
+          <div class="creed-content">
+            <div class="creed-quote-mark">“</div>
+            <p class="creed-text">
+              Build with the people who handle materials every day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10 - THE FOUNDERS (Executive Left / Right Split - Pro Architecture)
+         ====================================================================== -->
+    <section id="founders" class="founders-section" aria-labelledby="founders-heading">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="founders-header">
+          <div class="tech-label" style="margin-bottom: 1.25rem;">10 / Leadership</div>
+          <h2 class="section-title founders-main-title" id="founders-heading">The Founders</h2>
+          <p class="section-subtitle founders-subtitle-text">
+            Building the material intelligence layer for the recycling ecosystem.
+          </p>
+        </div>
+
+        <!-- Left / Right Split Layout -->
+        <div class="founders-split-layout">
+
+          <!-- LEFT COLUMN: SIVANADIAN ALAGAPPAN -->
+          <div class="founder-split-col col-left">
+            <article class="founder-card-pro" data-tilt>
+              <div class="card-corner corner-tl" aria-hidden="true"></div>
+              <div class="card-corner corner-tr" aria-hidden="true"></div>
+              <div class="card-corner corner-bl" aria-hidden="true"></div>
+              <div class="card-corner corner-br" aria-hidden="true"></div>
+
+              <!-- Top Meta Row -->
+              <div class="founder-card-topbar">
+                <span class="founder-role-tag">Co-Founder &amp; CEO</span>
+                <a href="https://www.linkedin.com/in/sivanadian-alagappan-01513a221/" target="_blank"
+                  rel="noopener noreferrer" class="founder-link">
+                  <span>LinkedIn Profile</span>
+                  <span class="link-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+
+              <!-- Founder Identity -->
+              <div class="founder-identity-block">
+                <h3 class="founder-name">Sivanadian Alagappan</h3>
+                <div class="founder-subtitle">Operations &amp; Decision Technologies</div>
+              </div>
+
+              <!-- Architectural Divider -->
+              <div class="card-inner-divider" aria-hidden="true"></div>
+
+              <!-- Founder Narrative Bio -->
+              <p class="founder-bio">
+                Sivanadian studied Business Administration with a focus on Operations and Decision Technologies at the
+                University of California, Irvine. His focus is on building technology that makes complex operational
+                systems more efficient, measurable, and data-driven.
+              </p>
+            </article>
+          </div>
+
+          <!-- Vertical Architectural Hairline Divider -->
+          <div class="founders-split-divider" aria-hidden="true"></div>
+
+          <!-- RIGHT COLUMN: JIMSTEL JACCOB JASIAH A -->
+          <div class="founder-split-col col-right">
+            <article class="founder-card-pro" data-tilt>
+              <div class="card-corner corner-tl" aria-hidden="true"></div>
+              <div class="card-corner corner-tr" aria-hidden="true"></div>
+              <div class="card-corner corner-bl" aria-hidden="true"></div>
+              <div class="card-corner corner-br" aria-hidden="true"></div>
+
+              <!-- Top Meta Row -->
+              <div class="founder-card-topbar">
+                <span class="founder-role-tag">Co-Founder &amp; CTO</span>
+                <a href="https://www.linkedin.com/in/jimstel-jaccob-jasiah-a-b5a464247/" target="_blank"
+                  rel="noopener noreferrer" class="founder-link">
+                  <span>LinkedIn Profile</span>
+                  <span class="link-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+
+              <!-- Founder Identity -->
+              <div class="founder-identity-block">
+                <h3 class="founder-name">Jimstel Jaccob Jasiah A</h3>
+                <div class="founder-subtitle">Software Engineer | AI &amp; ML | Computer Vision</div>
+              </div>
+
+              <!-- Architectural Divider -->
+              <div class="card-inner-divider" aria-hidden="true"></div>
+
+              <!-- Founder Narrative Bio -->
+              <p class="founder-bio">
+                Jimstel studied at Ponjesly College of Engineering, Kanyakumari, and leads the technology and
+                engineering direction behind Revore Tech's material intelligence platform.
+              </p>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10 - VISION SECTION
+         ====================================================================== -->
+    <section id="vision" class="vision-section" aria-labelledby="vision-heading">
+      <div class="container">
+        <div class="tech-label tech-label--lime" style="margin-bottom: 1.5rem;">11 / Frontier Vision</div>
+        <h2 class="vision-title" id="vision-heading">
+          Understanding materials, down to their nature.
+        </h2>
+
+        <div class="vision-body">
+          <p>
+            Materials are variable. Their composition, quality, recovery potential, and value can change from one piece
+            to another.
+          </p>
+          <p>
+            Our long-term vision is to build a material-intelligent layer capable of understanding the nature,
+            composition, variability, and value of materials wherever they exist.
+          </p>
+          <p>
+            Today, that starts with recycling. Tomorrow, it can extend far beyond it.
+          </p>
+        </div>
+
+        <div class="vision-ambition-quote">
+          “We want to scan the nooks and corners of material itself - on Earth and, eventually, wherever humanity
+          explores.”
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         11 - FINAL CTA & FOOTER
+         ====================================================================== -->
+    <section id="contact" class="footer-cta-section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="footer-cta-card">
+          <div class="tech-label tech-label--lime">Pilot Validation Program</div>
+          <h2 class="footer-cta-title" id="cta-heading">
+            Revore Tech<br>
+            <span class="text-lime">Material Scanner.</span>
+          </h2>
+          <p class="section-subtitle" style="text-align: center;">
+            Join our industrial testing network. Validate scanner accuracy on your facility's real-world scrap intake
+            streams.
+          </p>
+
+          <div class="footer-cta-actions">
+            <button class="btn btn-lime trigger-scan-modal">
+              <span>Request a Scan</span>
+              <span class="arrow-icon" aria-hidden="true">→</span>
+            </button>
+            <button class="btn btn-secondary trigger-scan-modal">
+              <span>Join Pilot Testing</span>
+              <span class="arrow-icon" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Site Footer -->
+        <footer class="site-footer" role="contentinfo">
+          <div class="footer-copy">
+            © 2026 Revore Tech. All rights reserved. Built for the recycling ecosystem.
+          </div>
+
+          <div class="footer-links">
+            <a href="#hero">Overview</a>
+            <a href="#scanner">Scanner</a>
+            <a href="#materials">Materials</a>
+            <a href="#how-it-works">Process</a>
+            <a href="#founders">Leadership</a>
+            <a href="#trust">Confidentiality</a>
+          </div>
+
+          <a href="#hero" class="footer-back-to-top" id="footer-back-to-top" aria-label="Back to top">
+            <span>Back to top</span>
+            <span class="top-arrow" aria-hidden="true">↑</span>
+          </a>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       PILOT SCAN REQUEST MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="scan-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-id">
+    <div class="modal-dialog">
+      <button class="modal-close" aria-label="Close modal">✕</button>
+      <div class="tech-label tech-label--lime" style="margin-bottom: 0.5rem;">Field Testing Application</div>
+      <h3 class="modal-title" id="modal-title-id">Request a Material Scan</h3>
+      <p class="modal-desc">
+        Connect with our engineering team to validate Revore's scanning capabilities on your scrap and recycling
+        materials.
+      </p>
+
+      <form id="pilot-scan-form">
+        <div class="form-group">
+          <label class="form-label" for="form-name">Contact Person / Title</label>
+          <input type="text" id="form-name" class="form-input" placeholder="e.g. S. Raman, Yard Operations Head"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="form-company">Company / Facility Name</label>
+          <input type="text" id="form-company" class="form-input" placeholder="e.g. Apex Secondary Smelting Ltd."
+            required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="form-facility">Facility Type</label>
+          <select id="form-facility" class="form-select" required>
+            <option value="" disabled selected>Select facility type</option>
+            <option value="scrap-yard">Scrap Yard / Aggregator</option>
+            <option value="foundry">Foundry / Secondary Smelter</option>
+            <option value="manufacturer">Industrial Manufacturer</option>
+            <option value="collection">Collection Center</option>
+            <option value="waste-mgmt">Waste Management Operator</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Primary Materials Handled</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-chip">
+              <input type="checkbox" name="materials" value="copper" checked>
+              <span>Copper & Non-Ferrous</span>
+            </label>
+            <label class="checkbox-chip">
+              <input type="checkbox" name="materials" value="aluminium" checked>
+              <span>Aluminium Extrusions</span>
+            </label>
+            <label class="checkbox-chip">
+              <input type="checkbox" name="materials" value="lead">
+              <span>Lead / Battery Plates</span>
+            </label>
+            <label class="checkbox-chip">
+              <input type="checkbox" name="materials" value="steel">
+              <span>Heavy Melting Steel (HMS)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="form-email">Email or Direct Contact Phone</label>
+          <input type="text" id="form-email" class="form-input" placeholder="name@domain.com or +91 98765 43210"
+            required>
+        </div>
+
+        <div class="form-notice">
+          Revore Tech respects operational confidentiality. Material testing data is strictly segregated and never
+          shared without authorization.
+        </div>
+
+        <button type="submit" class="btn btn-lime" style="width: 100%;">
+          <span>Submit Pilot Request</span>
+          <span class="arrow-icon" aria-hidden="true">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- App Entry Script -->
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
